@@ -1,18 +1,22 @@
 library(shiny)
 #ui.r
+curYear <- as.numeric(format(Sys.time(), "%Y"))
 
 shinyUI(fluidPage(
     
     titlePanel(
-        h3("GDP Historic Levels by Country",align="center"),
+        h2("GDP Historic Levels by Country",align="left"),
         ),
     sidebarLayout(
         sidebarPanel(
+            br(),
+            sliderInput("rangeslider", label = h4("Year's Range"), min = 1970, 
+                        max = curYear, value = c(1970, curYear)),
+        
             helpText("The following drop-down is a list of countries to be displayed."),
-            helpText("Please pick one."),
+            helpText("Please pick one or more."),
             br(),
             helpText(em("The source of the dataset is taken from the UNdata site")),
-            br(),
             a(href = "http://data.un.org/Default.aspx", strong("Dataset site",align = "center",style = "color:blue")),
             br(),
             br(),
