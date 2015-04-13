@@ -10,7 +10,7 @@ shinyUI(fluidPage(
     sidebarLayout(
         sidebarPanel(
             br(),
-            sliderInput("rangeslider", label = h4("Year's Range"), min = 1970, 
+            sliderInput("rangeslider", label = h4("Period's Range"), min = 1970, 
                         max = curYear, value = c(1970, curYear)),
         
             helpText("The following drop-down is a list of countries to be displayed."),
