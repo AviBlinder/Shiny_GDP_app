@@ -1,0 +1,17 @@
+{
+    "contents" : "# server.R\n\nlibrary(maps)\nlibrary(mapproj)\ncounties <- readRDS(\"data/counties.rds\")\nsource(\"helpers.R\")\n\nshinyServer(\n    function(input, output) {\n        output$map <- renderPlot({\n            data <- switch(input$var, \n                           \"Percent White\" = counties$white,\n                           \"Percent Black\" = counties$black,\n                           \"Percent Hispanic\" = counties$hispanic,\n                           \"Percent Asian\" = counties$asian)\n            colmap <- switch(input$var, \n                           \"Percent White\" = \"darkgreen\",\n                           \"Percent Black\" = \"gray1\",\n                           \"Percent Hispanic\" = \"darkorange\",\n                           \"Percent Asian\" = \"darkviolet\")\n            legendmap <- switch(input$var, \n                             \"Percent White\" = \"% White\",\n                             \"Percent Black\" = \"% Black\",\n                             \"Percent Hispanic\" = \"% Hispanic\",\n                             \"Percent Asian\" = \"% Asian\")\n            \n            percent_map(var = data, color = colmap, legend.title = legendmap, \n                        max = input$range[2], min = input$range[1])\n        })\n    }\n)\n#         output$text1 <- renderText({ \n#             paste(\"You have selected\", input$var)\n#         })\n#         \n#         output$range1 <- renderText({\n#             paste(\"Your range is from\", input$range[1], \" to \" , \n#                 input$range[2])\n#         })\n        ",
+    "created" : 1428841462456.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1647250351",
+    "id" : "CF818C4E",
+    "lastKnownWriteTime" : 1428851961,
+    "path" : "~/Documents/Avi/MOOC/ShinyApps/census-app/server.R",
+    "project_path" : null,
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "source_on_save" : false,
+    "type" : "r_source"
+}

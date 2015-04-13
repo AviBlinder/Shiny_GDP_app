@@ -1,0 +1,17 @@
+{
+    "contents" : "# ui.R\n\nshinyUI(fluidPage(\n    titlePanel(\"censusVis\"),\n    \n    sidebarLayout(\n        sidebarPanel(\n            helpText(\"Create demographic maps with \n        information from the 2010 US Census.\"),\n            \n            selectInput(\"var\", \n                        label = \"Choose a variable to display\",\n                        choices = c(\"Percent White\", \"Percent Black\",\n                                    \"Percent Hispanic\", \"Percent Asian\"),\n                        selected = \"Percent White\"),\n            \n            sliderInput(\"range\", \n                        label = \"Range of interest:\",\n                        min = 0, max = 100, value = c(0, 100))\n        ),\n        \n        mainPanel(\n          #  textOutput(\"text1\"),\n          #  textOutput(\"range1\")\n            plotOutput(\"map\")\n            \n        )\n    )\n))",
+    "created" : 1428840835183.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2453525320",
+    "id" : "F08BB1F6",
+    "lastKnownWriteTime" : 1428845589,
+    "path" : "~/Documents/Avi/MOOC/ShinyApps/census-app/ui.R",
+    "project_path" : null,
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "source_on_save" : false,
+    "type" : "r_source"
+}
